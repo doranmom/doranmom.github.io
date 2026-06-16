@@ -1,0 +1,29 @@
+---
+layout: default
+title: 논문 리뷰
+description: 의료 인공지능 · 생체신호 분야 논문 리뷰 모음
+permalink: /reviews.html
+---
+<div class="page-head">
+  <h1>논문 리뷰</h1>
+  <p>읽은 논문을 기록하고 정리합니다. 의료 인공지능, 생체신호 분석, 설명 가능한 머신러닝을 중심으로.</p>
+</div>
+
+<div class="review-list">
+  {% if site.posts.size == 0 %}
+  <div class="empty-note">아직 등록된 리뷰가 없습니다. <code>_posts/</code> 폴더에 마크다운 글을 추가하면 여기에 나타납니다.</div>
+  {% else %}
+  {% for post in site.posts %}
+  <a class="review-item" href="{{ post.url | relative_url }}">
+    <div class="date">{{ post.date | date: "%Y. %m. %d" }}</div>
+    <h2>{{ post.title }}</h2>
+    <div class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</div>
+    {% if post.tags and post.tags.size > 0 %}
+    <div class="tags">
+      {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </a>
+  {% endfor %}
+  {% endif %}
+</div>

@@ -1,0 +1,18 @@
+title: "Seung-Bo Lee · 논문 리뷰"
+description: "이승보(Seung-Bo Lee), Ph.D. — 의료 인공지능 / 생체신호 연구. 논문 리뷰 모음."
+author: "Seung-Bo Lee"
+lang: ko
+
+# 글 URL 형식: /reviews/2026/06/16/제목/
+permalink: /reviews/:year/:month/:day/:title/
+
+# 마크다운 처리기
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 빌드에서 제외
+exclude:
+  - README.md
+  - CV_12.pdf
