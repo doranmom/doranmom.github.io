@@ -7,7 +7,57 @@ permalink: /reviews.html
 <div class="page-head">
   <h1>논문 리뷰</h1>
   <p>읽은 논문을 기록하고 정리합니다. 의료 인공지능, 생체신호 분석, 설명 가능한 머신러닝을 중심으로.</p>
+  <a id="newReviewBtn" class="new-btn" href="https://github.com/doranmom/doranmom.github.io/new/main?filename=_posts/new-review.md" target="_blank" rel="noopener">✍️ 새 리뷰 작성하기</a>
 </div>
+
+<script>
+(function () {
+  var d = new Date();
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+  var date = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  var filename = '_posts/' + date + '-new-review.md';
+  var template = [
+    '---',
+    'layout: post',
+    'title: "리뷰 제목을 입력하세요"',
+    'date: ' + date,
+    'tags: [의료AI]',
+    '---',
+    '',
+    '## 📄 논문 정보',
+    '',
+    '- **제목**: ',
+    '- **저자**: ',
+    '- **출처**: ',
+    '- **링크**: ',
+    '',
+    '## 🎯 한 줄 요약',
+    '',
+    '',
+    '## 🔍 배경 & 문제의식',
+    '',
+    '- ',
+    '',
+    '## 🧩 방법',
+    '',
+    '- ',
+    '',
+    '## 📊 결과',
+    '',
+    '- ',
+    '',
+    '## 💬 내 생각',
+    '',
+    '- ',
+    ''
+  ].join('\n');
+  var url = 'https://github.com/doranmom/doranmom.github.io/new/main'
+    + '?filename=' + encodeURIComponent(filename)
+    + '&value=' + encodeURIComponent(template);
+  var btn = document.getElementById('newReviewBtn');
+  if (btn) { btn.href = url; }
+})();
+</script>
 
 <div class="review-list">
   {% if site.posts.size == 0 %}
