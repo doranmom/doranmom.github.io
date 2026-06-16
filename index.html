@@ -191,8 +191,12 @@
 
   <header class="hero">
     <div class="wrap hero-inner">
-      <!-- 프로필 사진을 넣으려면 아래 div 안 텍스트를 <img src="profile.jpg" alt="이승보">로 바꾸세요 -->
-      <div class="avatar">SB</div>
+      <!-- 프로필 사진: assets/img/profile.jpg 파일을 올리면 자동으로 표시됩니다.
+           파일이 없으면 'SB' 이니셜이 대신 보입니다. -->
+      <div class="avatar">
+        <img src="/assets/img/profile.jpg" alt="이승보 프로필 사진"
+             onerror="this.remove(); this.parentNode.textContent='SB';">
+      </div>
       <div class="hero-text">
         <h1>이승보 <span class="en">Seung-Bo Lee, Ph.D.</span></h1>
         <div class="role">조교수 (Assistant Professor)</div>
