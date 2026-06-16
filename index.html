@@ -191,11 +191,11 @@
 
   <header class="hero">
     <div class="wrap hero-inner">
-      <!-- 프로필 사진: assets/img/profile.jpg 파일을 올리면 자동으로 표시됩니다.
-           파일이 없으면 'SB' 이니셜이 대신 보입니다. -->
+      <!-- 프로필 사진: assets/img/profile.png 파일을 올리면 자동으로 표시됩니다.
+           png가 없으면 jpg를, 둘 다 없으면 'SB' 이니셜을 보여줍니다. -->
       <div class="avatar">
-        <img src="/assets/img/profile.jpg" alt="이승보 프로필 사진"
-             onerror="this.remove(); this.parentNode.textContent='SB';">
+        <img src="/assets/img/profile.png" alt="이승보 프로필 사진"
+             onerror="if(this.dataset.fallback){this.remove();this.parentNode.textContent='SB';}else{this.dataset.fallback=1;this.src='/assets/img/profile.jpg';}">
       </div>
       <div class="hero-text">
         <h1>이승보 <span class="en">Seung-Bo Lee, Ph.D.</span></h1>
