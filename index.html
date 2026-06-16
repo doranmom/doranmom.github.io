@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이름 · 소개</title>
+  <meta name="description" content="개인 소개 페이지" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-soft: #161b22;
+      --bg-card: #1a2029;
+      --border: #2a313c;
+      --text: #e6edf3;
+      --text-dim: #9da7b3;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.12);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: opacity .2s; }
+    a:hover { opacity: .75; }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(13, 17, 23, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    nav .brand { font-weight: 700; font-size: 1.05rem; }
+    nav .links { display: flex; gap: 22px; }
+    nav .links a { color: var(--text-dim); font-size: .92rem; }
+    nav .links a:hover { color: var(--text); opacity: 1; }
+    @media (max-width: 560px) { nav .links { gap: 14px; font-size: .85rem; } }
+
+    /* ---------- Hero ---------- */
+    header.hero { padding: 72px 0 48px; }
+    .hero-inner { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
+    .avatar {
+      width: 150px; height: 150px; flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1f6feb, #58a6ff);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; font-weight: 700; color: #fff;
+      border: 3px solid var(--border);
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-text h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -.5px; }
+    .hero-text .role { color: var(--accent); font-weight: 500; margin-top: 4px; font-size: 1.05rem; }
+    .hero-text .tagline { color: var(--text-dim); margin-top: 12px; max-width: 460px; }
+
+    .socials { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+    .socials a {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 14px; border-radius: 999px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-dim); font-size: .85rem;
+    }
+    .socials a:hover { color: var(--text); border-color: var(--accent); opacity: 1; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 40px 0; border-top: 1px solid var(--border); }
+    section h2 {
+      font-size: 1.35rem; margin-bottom: 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    section h2::before {
+      content: ''; width: 4px; height: 22px; border-radius: 2px;
+      background: var(--accent);
+    }
+    section p { color: var(--text-dim); }
+    section p + p { margin-top: 14px; }
+
+    /* timeline / list */
+    .item { display: flex; gap: 18px; padding: 16px 0; border-bottom: 1px dashed var(--border); }
+    .item:last-child { border-bottom: none; }
+    .item .when { flex-shrink: 0; width: 120px; color: var(--text-dim); font-size: .9rem; font-family: 'JetBrains Mono', monospace; }
+    .item .what strong { color: var(--text); font-weight: 500; }
+    .item .what span { color: var(--text-dim); display: block; font-size: .92rem; }
+    @media (max-width: 560px) { .item { flex-direction: column; gap: 4px; } .item .when { width: auto; } }
+
+    /* cards */
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .card p { font-size: .9rem; }
+    .card .tags { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag {
+      font-size: .72rem; padding: 3px 9px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* contact */
+    .contact-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; text-align: center;
+    }
+    .contact-box a.mail { font-size: 1.2rem; font-weight: 500; }
+
+    footer { padding: 40px 0; text-align: center; color: var(--text-dim); font-size: .82rem; border-top: 1px solid var(--border); }
+
+    .placeholder { color: #f0883e; font-style: italic; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <span class="brand">이름</span>
+      <div class="links">
+        <a href="#about">소개</a>
+        <a href="#news">소식</a>
+        <a href="#experience">경력</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#contact">연락처</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <!-- 프로필 사진: 아래 div를 <img>로 바꾸면 됩니다. 예: <div class="avatar"><img src="profile.jpg" alt=""></div> -->
+      <div class="avatar">이</div>
+      <div class="hero-text">
+        <h1>이름 <span class="placeholder">(여기에 이름)</span></h1>
+        <div class="role">직함 / 소속</div>
+        <p class="tagline">한두 문장의 자기소개가 들어가는 곳입니다. 관심사와 하는 일을 짧게 적어주세요.</p>
+        <div class="socials">
+          <a href="mailto:you@example.com">✉️ Email</a>
+          <a href="https://github.com/doranmom" target="_blank" rel="noopener">🐙 GitHub</a>
+          <a href="#" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a href="#" target="_blank" rel="noopener">📷 Instagram</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="about">
+      <h2>소개</h2>
+      <p>
+        안녕하세요. 저는 <span class="placeholder">[이름]</span>입니다.
+        <span class="placeholder">[전공/분야]</span>에 관심을 두고 있으며,
+        <span class="placeholder">[하는 일 또는 목표]</span>을(를) 하고 있습니다.
+      </p>
+      <p>
+        이 문단에는 좀 더 자세한 배경이나 가치관, 좋아하는 것 등을 자유롭게 적을 수 있습니다.
+        원하시는 내용을 알려주시면 그대로 채워 드릴게요.
+      </p>
+    </section>
+
+    <section id="news">
+      <h2>최근 소식</h2>
+      <div class="item">
+        <div class="when">2026.06</div>
+        <div class="what"><strong>개인 소개 페이지를 시작했습니다 🎉</strong>
+          <span>여기에 최근 소식, 수상, 발표, 입학/입사 같은 소식을 추가할 수 있어요.</span></div>
+      </div>
+      <div class="item">
+        <div class="when">2026.--</div>
+        <div class="what"><strong class="placeholder">[소식 제목]</strong>
+          <span class="placeholder">[간단한 설명]</span></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>학력 · 경력</h2>
+      <div class="item" id="experience">
+        <div class="when placeholder">2023 – 현재</div>
+        <div class="what"><strong class="placeholder">[소속/학교]</strong>
+          <span class="placeholder">[직함/전공 — 간단한 설명]</span></div>
+      </div>
+      <div class="item">
+        <div class="when placeholder">2019 – 2023</div>
+        <div class="what"><strong class="placeholder">[소속/학교]</strong>
+          <span class="placeholder">[직함/전공 — 간단한 설명]</span></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>프로젝트 · 작업</h2>
+      <div class="cards">
+        <div class="card">
+          <h3 class="placeholder">[프로젝트 이름]</h3>
+          <p class="placeholder">[한 줄 설명 — 무엇을 만들었고 어떤 역할을 했는지]</p>
+          <div class="tags"><span class="tag">태그</span><span class="tag">기술</span></div>
+        </div>
+        <div class="card">
+          <h3 class="placeholder">[프로젝트 이름]</h3>
+          <p class="placeholder">[한 줄 설명]</p>
+          <div class="tags"><span class="tag">태그</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>연락처</h2>
+      <div class="contact-box">
+        <p>궁금한 점이나 협업 제안은 언제든 환영합니다.</p>
+        <p style="margin-top:12px"><a class="mail" href="mailto:you@example.com">you@example.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © 2026 이름 · Built with 🤍 and hosted on GitHub Pages
+  </footer>
+</body>
+</html>
