@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>이름 · 소개</title>
-  <meta name="description" content="개인 소개 페이지" />
+  <title>이승보 (Seung-Bo Lee, Ph.D.) · 의료 인공지능 연구자</title>
+  <meta name="description" content="이승보(Seung-Bo Lee), Ph.D. — 계명대학교 의과대학 의료정보학교실 부교수. 의료 인공지능, 생체신호 분석, 설명 가능한 머신러닝 연구." />
+  <meta property="og:title" content="이승보 (Seung-Bo Lee, Ph.D.)" />
+  <meta property="og:description" content="계명대학교 의과대학 의료정보학교실 부교수 · 의료 인공지능 / 생체신호 분석 연구자" />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -17,14 +20,13 @@
       --text: #e6edf3;
       --text-dim: #9da7b3;
       --accent: #58a6ff;
+      --accent2: #7ee787;
       --accent-soft: rgba(88, 166, 255, 0.12);
       --radius: 14px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Noto Sans KR', system-ui, sans-serif;
       background: var(--bg);
@@ -32,25 +34,26 @@
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
     }
-
     a { color: var(--accent); text-decoration: none; transition: opacity .2s; }
     a:hover { opacity: .75; }
-
-    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
     /* ---------- Nav ---------- */
     nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(13, 17, 23, 0.8);
+      background: rgba(13, 17, 23, 0.82);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
     nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
     nav .brand { font-weight: 700; font-size: 1.05rem; }
-    nav .links { display: flex; gap: 22px; }
-    nav .links a { color: var(--text-dim); font-size: .92rem; }
+    nav .links { display: flex; gap: 20px; }
+    nav .links a { color: var(--text-dim); font-size: .9rem; }
     nav .links a:hover { color: var(--text); opacity: 1; }
-    @media (max-width: 560px) { nav .links { gap: 14px; font-size: .85rem; } }
+    @media (max-width: 640px) {
+      nav .links { gap: 12px; font-size: .8rem; }
+      nav .brand { font-size: .95rem; }
+    }
 
     /* ---------- Hero ---------- */
     header.hero { padding: 72px 0 48px; }
@@ -60,84 +63,126 @@
       border-radius: 50%;
       background: linear-gradient(135deg, #1f6feb, #58a6ff);
       display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; font-weight: 700; color: #fff;
+      font-size: 2.8rem; font-weight: 700; color: #fff;
       border: 3px solid var(--border);
       overflow: hidden;
     }
     .avatar img { width: 100%; height: 100%; object-fit: cover; }
     .hero-text h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -.5px; }
-    .hero-text .role { color: var(--accent); font-weight: 500; margin-top: 4px; font-size: 1.05rem; }
-    .hero-text .tagline { color: var(--text-dim); margin-top: 12px; max-width: 460px; }
+    .hero-text h1 .en { color: var(--text-dim); font-weight: 400; font-size: 1.3rem; }
+    .hero-text .role { color: var(--accent); font-weight: 500; margin-top: 6px; font-size: 1.02rem; }
+    .hero-text .affil { color: var(--text-dim); font-size: .95rem; margin-top: 2px; }
+    .hero-text .tagline { color: var(--text-dim); margin-top: 14px; max-width: 520px; }
 
-    .socials { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+    .socials { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
     .socials a {
       display: inline-flex; align-items: center; gap: 7px;
       padding: 7px 14px; border-radius: 999px;
       background: var(--bg-card); border: 1px solid var(--border);
-      color: var(--text-dim); font-size: .85rem;
+      color: var(--text-dim); font-size: .84rem;
     }
     .socials a:hover { color: var(--text); border-color: var(--accent); opacity: 1; }
 
     /* ---------- Sections ---------- */
-    section { padding: 40px 0; border-top: 1px solid var(--border); }
+    section { padding: 44px 0; border-top: 1px solid var(--border); }
     section h2 {
-      font-size: 1.35rem; margin-bottom: 22px;
+      font-size: 1.35rem; margin-bottom: 24px;
       display: flex; align-items: center; gap: 10px;
     }
     section h2::before {
       content: ''; width: 4px; height: 22px; border-radius: 2px;
       background: var(--accent);
     }
-    section p { color: var(--text-dim); }
-    section p + p { margin-top: 14px; }
+    section > .wrap > p { color: var(--text-dim); }
+    .lead { color: var(--text-dim); }
+    .lead + .lead { margin-top: 14px; }
+
+    /* research tags */
+    .interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .interests .tag {
+      font-size: .82rem; padding: 6px 13px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent);
+    }
 
     /* timeline / list */
     .item { display: flex; gap: 18px; padding: 16px 0; border-bottom: 1px dashed var(--border); }
     .item:last-child { border-bottom: none; }
-    .item .when { flex-shrink: 0; width: 120px; color: var(--text-dim); font-size: .9rem; font-family: 'JetBrains Mono', monospace; }
+    .item .when { flex-shrink: 0; width: 160px; color: var(--text-dim); font-size: .85rem; font-family: 'JetBrains Mono', monospace; }
     .item .what strong { color: var(--text); font-weight: 500; }
-    .item .what span { color: var(--text-dim); display: block; font-size: .92rem; }
-    @media (max-width: 560px) { .item { flex-direction: column; gap: 4px; } .item .when { width: auto; } }
+    .item .what span { color: var(--text-dim); display: block; font-size: .9rem; }
+    @media (max-width: 640px) { .item { flex-direction: column; gap: 4px; } .item .when { width: auto; } }
 
-    /* cards */
-    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
-    .card {
+    /* representative publications */
+    .pub-rep { display: flex; flex-direction: column; gap: 16px; }
+    .pub-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px;
-      transition: transform .2s, border-color .2s;
+      border-radius: var(--radius); padding: 20px 22px;
+      transition: border-color .2s;
     }
-    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
-    .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-    .card p { font-size: .9rem; }
-    .card .tags { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
-    .tag {
-      font-size: .72rem; padding: 3px 9px; border-radius: 999px;
-      background: var(--accent-soft); color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
+    .pub-card:hover { border-color: var(--accent); }
+    .pub-card .title { color: var(--text); font-weight: 500; }
+    .pub-card .meta { color: var(--text-dim); font-size: .86rem; margin-top: 4px; }
+    .pub-card .meta em { color: var(--accent2); font-style: normal; }
+    .pub-card .desc {
+      color: var(--text-dim); font-size: .9rem; margin-top: 12px;
+      padding-left: 14px; border-left: 2px solid var(--accent);
     }
+
+    /* complete list */
+    details.fulllist { margin-top: 8px; }
+    details.fulllist summary {
+      cursor: pointer; color: var(--accent); font-size: .92rem;
+      padding: 12px 16px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      list-style: none; user-select: none;
+    }
+    details.fulllist summary::-webkit-details-marker { display: none; }
+    details.fulllist summary::before { content: '▸ '; }
+    details.fulllist[open] summary::before { content: '▾ '; }
+    ol.papers { margin-top: 16px; padding-left: 0; list-style: none; counter-reset: pub; }
+    ol.papers li {
+      counter-increment: pub;
+      position: relative; padding: 12px 0 12px 42px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dim); font-size: .88rem; line-height: 1.6;
+    }
+    ol.papers li::before {
+      content: counter(pub);
+      position: absolute; left: 0; top: 12px;
+      width: 28px; text-align: right;
+      font-family: 'JetBrains Mono', monospace; font-size: .8rem;
+      color: var(--accent);
+    }
+    ol.papers li .auth-me { color: var(--text); font-weight: 500; }
+    ol.papers li .jrnl { color: var(--accent2); }
+    ol.papers li .yr { font-family: 'JetBrains Mono', monospace; }
 
     /* contact */
-    .contact-box {
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 560px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-grid a {
+      display: flex; align-items: center; gap: 12px;
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px; text-align: center;
+      border-radius: var(--radius); padding: 18px 20px; color: var(--text);
     }
-    .contact-box a.mail { font-size: 1.2rem; font-weight: 500; }
+    .contact-grid a:hover { border-color: var(--accent); opacity: 1; }
+    .contact-grid .ico { font-size: 1.4rem; }
+    .contact-grid .lbl { font-size: .78rem; color: var(--text-dim); display: block; }
+    .contact-grid .val { font-size: .95rem; }
 
     footer { padding: 40px 0; text-align: center; color: var(--text-dim); font-size: .82rem; border-top: 1px solid var(--border); }
-
-    .placeholder { color: #f0883e; font-style: italic; }
   </style>
 </head>
 <body>
   <nav>
     <div class="wrap">
-      <span class="brand">이름</span>
+      <span class="brand">Seung-Bo Lee</span>
       <div class="links">
         <a href="#about">소개</a>
-        <a href="#news">소식</a>
-        <a href="#experience">경력</a>
-        <a href="#projects">프로젝트</a>
+        <a href="#education">학력</a>
+        <a href="#employment">경력</a>
+        <a href="#activities">활동</a>
+        <a href="#publications">논문</a>
         <a href="#contact">연락처</a>
       </div>
     </div>
@@ -145,91 +190,219 @@
 
   <header class="hero">
     <div class="wrap hero-inner">
-      <!-- 프로필 사진: 아래 div를 <img>로 바꾸면 됩니다. 예: <div class="avatar"><img src="profile.jpg" alt=""></div> -->
-      <div class="avatar">이</div>
+      <!-- 프로필 사진을 넣으려면 아래 div 안 텍스트를 <img src="profile.jpg" alt="이승보">로 바꾸세요 -->
+      <div class="avatar">SB</div>
       <div class="hero-text">
-        <h1>이름 <span class="placeholder">(여기에 이름)</span></h1>
-        <div class="role">직함 / 소속</div>
-        <p class="tagline">한두 문장의 자기소개가 들어가는 곳입니다. 관심사와 하는 일을 짧게 적어주세요.</p>
+        <h1>이승보 <span class="en">Seung-Bo Lee, Ph.D.</span></h1>
+        <div class="role">부교수 (Associate Professor)</div>
+        <div class="affil">계명대학교 의과대학 의료정보학교실<br>Department of Medical Informatics, Keimyung University School of Medicine</div>
+        <p class="tagline">생체신호와 임상 데이터를 다루는 <strong>의료 인공지능</strong> 연구자입니다. 설명 가능한 머신러닝으로 질병을 진단·예측하고, 임상 현장에서 실제로 쓰이는 의사결정 지원 도구를 만듭니다.</p>
         <div class="socials">
-          <a href="mailto:you@example.com">✉️ Email</a>
+          <a href="mailto:koreateam23@gmail.com">✉️ Email</a>
           <a href="https://github.com/doranmom" target="_blank" rel="noopener">🐙 GitHub</a>
-          <a href="#" target="_blank" rel="noopener">💼 LinkedIn</a>
-          <a href="#" target="_blank" rel="noopener">📷 Instagram</a>
+          <a href="https://scholar.google.com/" target="_blank" rel="noopener">🎓 Google Scholar</a>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
+  <main>
     <section id="about">
-      <h2>소개</h2>
-      <p>
-        안녕하세요. 저는 <span class="placeholder">[이름]</span>입니다.
-        <span class="placeholder">[전공/분야]</span>에 관심을 두고 있으며,
-        <span class="placeholder">[하는 일 또는 목표]</span>을(를) 하고 있습니다.
-      </p>
-      <p>
-        이 문단에는 좀 더 자세한 배경이나 가치관, 좋아하는 것 등을 자유롭게 적을 수 있습니다.
-        원하시는 내용을 알려주시면 그대로 채워 드릴게요.
-      </p>
-    </section>
-
-    <section id="news">
-      <h2>최근 소식</h2>
-      <div class="item">
-        <div class="when">2026.06</div>
-        <div class="what"><strong>개인 소개 페이지를 시작했습니다 🎉</strong>
-          <span>여기에 최근 소식, 수상, 발표, 입학/입사 같은 소식을 추가할 수 있어요.</span></div>
-      </div>
-      <div class="item">
-        <div class="when">2026.--</div>
-        <div class="what"><strong class="placeholder">[소식 제목]</strong>
-          <span class="placeholder">[간단한 설명]</span></div>
+      <div class="wrap">
+        <h2>소개</h2>
+        <p class="lead">
+          이승보(Seung-Bo Lee)는 계명대학교 의과대학 의료정보학교실 부교수로, 의료 인공지능(Medical AI)과 생체신호 분석을 연구합니다.
+          고려대학교에서 컴퓨터통신공학 학사와 뇌공학(Brain and Cognitive Engineering) 박사 학위를 받았으며,
+          서울대학교병원 의료정보실 연구교수와 LG CNS 선임연구원을 거쳤습니다.
+        </p>
+        <p class="lead">
+          뇌파(EEG)·두개내압(ICP)·근전도(EMG)·맥파(PPG)·심전도(ECG) 등 다양한 생체신호와 임상·수술 데이터를 바탕으로
+          딥러닝·머신러닝 모델을 개발하여, 뇌졸중·치매·파킨슨병·뇌전증 진단과 수술 중 위험 예측 등 폭넓은 임상 문제를 다룹니다.
+          특히 <strong>설명 가능한 인공지능(Explainable AI)</strong>과 신호 아티팩트 제거에 강점을 두고, 모델이 임상에서 신뢰받고 활용될 수 있도록 연구합니다.
+        </p>
+        <div class="interests">
+          <span class="tag">의료 인공지능</span>
+          <span class="tag">생체신호 처리</span>
+          <span class="tag">설명 가능한 AI (XAI)</span>
+          <span class="tag">임상 예측 모델</span>
+          <span class="tag">뇌-컴퓨터 인터페이스 (BCI)</span>
+          <span class="tag">딥러닝</span>
+          <span class="tag">신경퇴행성 질환 진단</span>
+        </div>
       </div>
     </section>
 
     <section id="education">
-      <h2>학력 · 경력</h2>
-      <div class="item" id="experience">
-        <div class="when placeholder">2023 – 현재</div>
-        <div class="what"><strong class="placeholder">[소속/학교]</strong>
-          <span class="placeholder">[직함/전공 — 간단한 설명]</span></div>
-      </div>
-      <div class="item">
-        <div class="when placeholder">2019 – 2023</div>
-        <div class="what"><strong class="placeholder">[소속/학교]</strong>
-          <span class="placeholder">[직함/전공 — 간단한 설명]</span></div>
+      <div class="wrap">
+        <h2>학력</h2>
+        <div class="item">
+          <div class="when">2015 – 2020</div>
+          <div class="what"><strong>고려대학교 뇌공학과 공학박사 (Ph.D.)</strong>
+            <span>Ph.D. in Brain and Cognitive Engineering, Korea University, Seoul</span></div>
+        </div>
+        <div class="item">
+          <div class="when">2009 – 2015</div>
+          <div class="what"><strong>고려대학교 컴퓨터통신공학 공학사 (B.S.)</strong>
+            <span>B.S. in Computer and Communication Engineering, Korea University, Seoul</span></div>
+        </div>
       </div>
     </section>
 
-    <section id="projects">
-      <h2>프로젝트 · 작업</h2>
-      <div class="cards">
-        <div class="card">
-          <h3 class="placeholder">[프로젝트 이름]</h3>
-          <p class="placeholder">[한 줄 설명 — 무엇을 만들었고 어떤 역할을 했는지]</p>
-          <div class="tags"><span class="tag">태그</span><span class="tag">기술</span></div>
+    <section id="employment">
+      <div class="wrap">
+        <h2>경력</h2>
+        <div class="item">
+          <div class="when">2022.03 – 현재</div>
+          <div class="what"><strong>부교수 · 계명대학교 의과대학 의료정보학교실</strong>
+            <span>Associate Professor, Dept. of Medical Informatics, Keimyung University School of Medicine</span></div>
         </div>
-        <div class="card">
-          <h3 class="placeholder">[프로젝트 이름]</h3>
-          <p class="placeholder">[한 줄 설명]</p>
-          <div class="tags"><span class="tag">태그</span></div>
+        <div class="item">
+          <div class="when">2020.10 – 2022.02</div>
+          <div class="what"><strong>연구교수 · 서울대학교병원 의료정보실</strong>
+            <span>Research Professor, Office of Hospital Information, Seoul National University Hospital</span></div>
         </div>
+        <div class="item">
+          <div class="when">2020.07 – 2020.09</div>
+          <div class="what"><strong>선임연구원 · LG CNS</strong>
+            <span>Senior Research Engineer, LG CNS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities">
+      <div class="wrap">
+        <h2>전문 활동</h2>
+        <div class="item">
+          <div class="when">2026.01 – 현재</div>
+          <div class="what"><strong>편집이사 · 대한디지털헬스학회</strong>
+            <span>Editorial Director, The Korean Society of Digital Health</span></div>
+        </div>
+        <div class="item">
+          <div class="when">2025.01 – 현재</div>
+          <div class="what"><strong>편집위원 · Digital Health Research (대한디지털헬스학회)</strong>
+            <span>Editorial Board Member of Digital Health Research, The Korean Society of Digital Health</span></div>
+        </div>
+        <div class="item">
+          <div class="when">2025.01 – 현재</div>
+          <div class="what"><strong>출판위원 · 대한의료정보학회</strong>
+            <span>Publication Committee Member, The Korean Society of Medical Informatics</span></div>
+        </div>
+        <div class="item">
+          <div class="when">2023.01 – 현재</div>
+          <div class="what"><strong>학술위원 · 대한의료정보학회</strong>
+            <span>Academic Committee Member, The Korean Society of Medical Informatics</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="wrap">
+        <h2>대표 논문</h2>
+        <div class="pub-rep">
+          <div class="pub-card">
+            <div class="title">Artifact removal from neurophysiological signals: impact on intracranial and arterial pressure monitoring in traumatic brain injury</div>
+            <div class="meta"><span class="auth">Lee, S.-B.</span>, Kim H., Kim Y.-T., Zeiler F.A., Smielewski P., Czosnyka M., Kim D.-J. · <em>Journal of Neurosurgery</em> 132(6):1952–1960, 2019</div>
+            <div class="desc">외상성 뇌손상 환자 309명의 두개내압(ICP)·동맥압 신호에서 딥러닝(SCAE-CNN) 기반 아티팩트 제거 모델을 개발해 각각 97%, 94%의 높은 정확도를 달성. 아티팩트 제거 후 저혈압·뇌관류 저하 등 임상 지표의 신뢰도와 예후 판정 정확도가 크게 향상됨을 입증했습니다.</div>
+          </div>
+          <div class="pub-card">
+            <div class="title">Comparative analysis of features extracted from EEG spatial, spectral and temporal domains for binary and multiclass motor imagery classification</div>
+            <div class="meta"><span class="auth">Lee, S.-B.</span>, Kim H.-J., Kim H., Jeong J.-H., Lee S.-W., Kim D.-J. · <em>Information Sciences</em> 502:190–200, 2019</div>
+            <div class="desc">운동 상상 기반 뇌-컴퓨터 인터페이스에서 EEG 신호의 공간(CSP)·시간(TDP)·주파수(PSD) 영역 특징을 비교 분석. 복잡한 다중 클래스 과제에서는 시간·공간 영역 특징이 주파수 영역보다 우수한 분류 성능을 보임을 입증했습니다.</div>
+          </div>
+          <div class="pub-card">
+            <div class="title">Machine Learning–Based Explainable Automated Nonlinear Computation Scoring System for Health Score and an Application for Prediction of Perioperative Stroke</div>
+            <div class="meta">Oh M.-Y., Kim H.-S., Jung Y.M., Lee H.-C., <span class="auth">Lee, S.-B.</span>, Lee S.M. · <em>Journal of Medical Internet Research</em> 27:e58021, 2025</div>
+            <div class="desc">수술 전후 뇌졸중 예측을 위한 설명 가능한 자동화 비선형 건강 점수 시스템(EACH score)을 개발. 수술 전 환자의 뇌졸중 위험을 정확히 예측하는 ML 기반 임상 의사결정 지원 도구를 제시했습니다.</div>
+          </div>
+          <div class="pub-card">
+            <div class="title">Non-invasive prediction of massive transfusion during surgery using intraoperative hemodynamic monitoring data</div>
+            <div class="meta">Kwon D., Jung Y.M., Lee H.-C., Kim T.K., Kim K., Lee G., Kim D., <span class="auth">Lee, S.-B.</span>, Lee S.M. · <em>Journal of Biomedical Informatics</em> 156:104680, 2024</div>
+            <div class="desc">수술 중 혈역학적 모니터링 데이터로 대량 수혈을 비침습적으로 예측하는 ML 모델을 개발. 실시간 수술실 환경에서 수혈 준비를 최적화하고 환자 안전성을 높이는 데 기여했습니다.</div>
+          </div>
+          <div class="pub-card">
+            <div class="title">Residual one-dimensional convolutional neural network for neuromuscular disorder classification from needle electromyography signals with explainability</div>
+            <div class="meta">Yoo J., Yoo I., Youn I., Kim S.-M., Yu R., Kim K., Kim K., <span class="auth">Lee, S.-B.</span> · <em>Computer Methods and Programs in Biomedicine</em> 226:107079, 2022</div>
+            <div class="desc">신경근육 질환 진단을 위한 needle EMG 신호 분류에 최적화된 1차원 잔차 CNN(nEMGNet)과 DiVote 알고리즘을 개발해 83.69%의 진단 정확도를 달성. 특징 시각화로 모델의 설명 가능성을 확보했습니다.</div>
+          </div>
+          <div class="pub-card">
+            <div class="title">Diagnosis of Alzheimer's Disease and Frontotemporal Dementia from Electroencephalography Signals</div>
+            <div class="meta">Lee D.-G., <span class="auth">Lee, S.-B.</span> · <em>IEEE Transactions on Neural Systems and Rehabilitation Engineering</em>, 2025</div>
+            <div class="desc">안정 상태 EEG 신호로 알츠하이머병과 전측두엽 치매를 진단하는 기계학습 모델을 개발해, 신경퇴행성 질환의 조기 감별 진단 가능성을 제시했습니다.</div>
+          </div>
+        </div>
+
+        <h2 style="margin-top:48px">전체 논문 목록 <span style="color:var(--text-dim);font-weight:400;font-size:1rem">(SCI/SCIE, 34편)</span></h2>
+        <details class="fulllist">
+          <summary>전체 논문 목록 펼치기 / 접기</summary>
+          <ol class="papers">
+            <li>Song M.-S., <span class="auth-me">Lee S.-B.</span> "Interpretable machine learning for hypertension detection using photoplethysmography (PPG) signals and their derivatives", <span class="jrnl">Biomedical Signal Processing and Control</span>, 113, 109194, <span class="yr">2026</span>.</li>
+            <li>Park K.-I., Shin Y., Hwang S., Kim Y.-J., <span class="auth-me">Lee S.-B.</span>, Son H., Moon J., Lee S.-T., Jung K.-H., Chu K. "Prediction of personalized antiseizure medications response based on clinical signatures in epilepsy", <span class="jrnl">Scientific Reports</span>, 15(1), 33177, <span class="yr">2025</span>.</li>
+            <li>Lee J., Lee Y., Baik S.Y., Lee J., <span class="auth-me">Lee S.-B.</span>, Park J. "Review of the 2025 Spring Conference of the Korean Society of Medical Informatics: AI and Human Collaboration in the Age of Generative AI", <span class="jrnl">Healthcare Informatics Research</span>, 31(3), 215-217, <span class="yr">2025</span>.</li>
+            <li>Lee D.-G., <span class="auth-me">Lee S.-B.</span> "Robust Motor Imagery–Brain–Computer Interface Classification in Signal Degradation: A Multi-Window Ensemble Approach", <span class="jrnl">Biomimetics</span>, 10(12), 832, <span class="yr">2025</span>.</li>
+            <li>Lee D.-G., <span class="auth-me">Lee S.-B.</span> "Diagnosis of Alzheimer's Disease and Frontotemporal Dementia from Electroencephalography Signals", <span class="jrnl">IEEE Transactions on Neural Systems and Rehabilitation Engineering</span>, <span class="yr">2025</span>.</li>
+            <li>Kim B.W., Han J.H., Yoo S.H., Do M.-T., Kang M., <span class="auth-me">Lee S.-B.</span>, Oh D., Cheon G.J., Ku J.H., Kwak C. "Novel Bone Scan Features for Predicting Prognosis in Men With Bone Metastatic Prostate Cancer: A Retrospective Study", <span class="jrnl">Journal of Korean Medical Science</span>, 40(33), <span class="yr">2025</span>.</li>
+            <li>Lee D.-G., <span class="auth-me">Lee S.-B.</span> "EEG Feature Extraction for Neurodegenerative Disease Diagnosis: A Review", <span class="jrnl">Digital Health Research</span>, 3(3), <span class="yr">2025</span>.</li>
+            <li>Oh M.-Y., Kim H.-S., Jung Y.M., Lee H.-C., <span class="auth-me">Lee S.-B.</span>, Lee S.M. "Compact machine learning model for perioperative stroke prediction prior to surgery: A retrospective cohort study", <span class="jrnl">Scientific Reports</span>, 15(1), 40871, <span class="yr">2025</span>.</li>
+            <li>Ko Y.-K., <span class="auth-me">Lee S.-B.</span>, Lee S.-W. "Automated scan quality evaluation for DDH using transfer learning: Development of a novel ensemble system", <span class="jrnl">PLoS ONE</span>, 20(3), e0317251, <span class="yr">2025</span>.</li>
+            <li>Park K.-I., Hwang S., Shin Y., Kim Y.-J., <span class="auth-me">Lee S.-B.</span>, Son H., Kang M.-K., Moon J., Lee S.-T., Jung K.-H. "Prediction of longitudinal outcomes and novel cluster identification in epilepsy", <span class="jrnl">Scientific Reports</span>, 15(1), 42325, <span class="yr">2025</span>.</li>
+            <li>Oh M.-Y., Kim H.-S., Jung Y.M., Lee H.-C., <span class="auth-me">Lee S.-B.</span>, Lee S.M. "Machine Learning–Based Explainable Automated Nonlinear Computation Scoring System for Health Score and an Application for Prediction of Perioperative Stroke: Retrospective Study", <span class="jrnl">Journal of Medical Internet Research</span>, 27, e58021, <span class="yr">2025</span>.</li>
+            <li>Kwon D., Jung Y.M., Lee H.-C., Kim T.K., Kim K., Lee G., Kim D., <span class="auth-me">Lee S.-B.</span>, Lee S.M. "Non-invasive prediction of massive transfusion during surgery using intraoperative hemodynamic monitoring data", <span class="jrnl">Journal of Biomedical Informatics</span>, 156, 104680, <span class="yr">2024</span>.</li>
+            <li>Song M.-S., <span class="auth-me">Lee S.-B.</span> "Comparative study of time-frequency transformation methods for ECG signal classification", <span class="jrnl">Frontiers in Signal Processing</span>, 4, 1322334, <span class="yr">2024</span>.</li>
+            <li><span class="auth-me">Lee S.-B.</span>, Kang J.-Y., Chie E.K., Bae Y.S. "A novel deterioration prediction system for mild COVID-19 patients in Korea: a retrospective study", <span class="jrnl">Scientific Reports</span>, 14(1), 20171, <span class="yr">2024</span>.</li>
+            <li>Kim K., Kim K., <span class="auth-me">Lee S.-B.</span> "PRISM: Deep metric learning based personal grouping method to reduce intersubject variability for motor imagery brain–computer interface", <span class="jrnl">Neurocomputing</span>, 593, 127805, <span class="yr">2024</span>.</li>
+            <li>Rhee T.-M., Ko Y.-K., Kim H.-K., <span class="auth-me">Lee S.-B.</span>, Kim B.-S., Choi H.-M., Hwang I.-C., Park J.-B., Yoon Y.E., Kim Y.-J. "Machine learning-based discrimination of cardiovascular outcomes in patients with hypertrophic cardiomyopathy", <span class="jrnl">JACC: Asia</span>, 4(5), 375-386, <span class="yr">2024</span>.</li>
+            <li>Hwang S., Shin Y., Sunwoo J.-S., Son H., <span class="auth-me">Lee S.-B.</span>, Chu K., Jung K.-Y., Lee S.K., Kim Y.-G., Park K.-I. "Increased coherence predicts medical refractoriness in patients with temporal lobe epilepsy on monotherapy", <span class="jrnl">Scientific Reports</span>, 14(1), 20530, <span class="yr">2024</span>.</li>
+            <li>Kim J.S., Kwon D., Kim K., Lee S.H., <span class="auth-me">Lee S.-B.</span>, Kim K., Kim D., Lee M.W., Park N., Choi J.H. "Machine learning-based prediction of pulmonary embolism to reduce unnecessary computed tomography scans in gastrointestinal cancer patients: a retrospective multicenter study", <span class="jrnl">Scientific Reports</span>, 14(1), 25359, <span class="yr">2024</span>.</li>
+            <li>Heo K.-N., Seok J.Y., Ah Y.-M., Kim K.-i., <span class="auth-me">Lee S.-B.</span>, Lee J.-Y. "Development and validation of a machine learning-based fall-related injury risk prediction model using nationwide claims database in Korean community-dwelling older population", <span class="jrnl">BMC Geriatrics</span>, 23(1), 830, <span class="yr">2023</span>.</li>
+            <li>Shin Y., Hwang S., <span class="auth-me">Lee S.-B.</span>, Son H., Chu K., Jung K.-Y., Lee S.K., Park K.-I., Kim Y.-G. "Using spectral and temporal filters with EEG signal to predict the temporal lobe epilepsy outcome after antiseizure medication via machine learning", <span class="jrnl">Scientific Reports</span>, 13(1), 22532, <span class="yr">2023</span>.</li>
+            <li>Kang J.-Y., Bae Y.S., Chie E.K., <span class="auth-me">Lee S.-B.</span> "Predicting Deterioration from Wearable Sensor Data in People with Mild COVID-19", <span class="jrnl">Sensors</span>, 23(23), 9597, <span class="yr">2023</span>.</li>
+            <li>Kwon D.Y., Jung Y.M., <span class="auth-me">Lee S.-B.</span>, Kim T., Kim K., Bae J., Lee J., Park C.-W., Park J.S., Jun J.K. "Real-time prediction of massive transfusion during cesarean section using intraoperative hemodynamic monitoring data", <span class="jrnl">American Journal of Obstetrics &amp; Gynecology</span>, 228(1), S150-S151, <span class="yr">2023</span>.</li>
+            <li>Park S., Lee C., <span class="auth-me">Lee S.-B.</span>, Lee J.-y. "Machine learning-based prediction model for emergency department visits using prescription information in community-dwelling non-cancer older adults", <span class="jrnl">Scientific Reports</span>, 13(1), 18887, <span class="yr">2023</span>.</li>
+            <li>Shin Y., Kim Y.J., Jin J., <span class="auth-me">Lee S.-B.</span>, Kim H.-S., Kim Y.-G. "Machine learning model for predicting immediate postoperative desaturation using spirometry signal data", <span class="jrnl">Scientific Reports</span>, 13(1), 21881, <span class="yr">2023</span>.</li>
+            <li>Song S.I., Hong H.T., Lee C., <span class="auth-me">Lee S.-B.</span> "A machine learning approach for predicting suicidal ideation in post stroke patients", <span class="jrnl">Scientific Reports</span>, 12(1), 15906, <span class="yr">2022</span>.</li>
+            <li>Shin D., Kim K., <span class="auth-me">Lee S.-B.</span>, Lee C., Bae Y.S., Cho W.I., Kim M.J., Park C.H.K., Chie E.K., Kim N.S. "Detection of depression and suicide risk based on text from clinical interviews using machine learning: possibility of a new objective diagnostic marker", <span class="jrnl">Frontiers in Psychiatry</span>, 13, 801301, <span class="yr">2022</span>.</li>
+            <li>Kim J., Ha E.-J., Kim H.-S., Park E.-Y., Lee H.-C., Choo Y.-H., Shim Y., Kim K., Kim K., <span class="auth-me">Lee S.-B.</span> "Real-Time Evaluation of Cerebral Autoregulation Based on Near-Infrared Spectroscopy to Predict Clinical Outcome after Bypass Surgery in Moyamoya Disease", <span class="jrnl">BioMed Research International</span>, 2022(1), 3091660, <span class="yr">2022</span>.</li>
+            <li>Yoo J., Yoo I., Youn I., Kim S.-M., Yu R., Kim K., Kim K., <span class="auth-me">Lee S.-B.</span> "Residual one-dimensional convolutional neural network for neuromuscular disorder classification from needle electromyography signals with explainability", <span class="jrnl">Computer Methods and Programs in Biomedicine</span>, 226, 107079, <span class="yr">2022</span>.</li>
+            <li>Song K.-S., Yon C.-J., Heo Y.-R., Lee J.-H., <span class="auth-me">Lee S.-B.</span>, Ko Y.-K., Lee K.-J., Lee S.-W. "Using the axial oblique view of computed tomography (CT) in evaluating femoral anteversion: a comparative cadaveric study", <span class="jrnl">Diagnostics</span>, 12(8), 1820, <span class="yr">2022</span>.</li>
+            <li><span class="auth-me">Lee S.-B.</span>, Kim Y.-J., Hwang S., Son H., Lee S.K., Park K.-I., Kim Y.-G. "Predicting Parkinson's disease using gradient boosting decision tree models with electroencephalography signals", <span class="jrnl">Parkinsonism &amp; Related Disorders</span>, 95, 77-85, <span class="yr">2022</span>.</li>
+            <li><span class="auth-me">Lee S.-B.</span>, Kim H., Kim Y.-T., Zeiler F.A., Smielewski P., Czosnyka M., Kim D.-J. "Artifact removal from neurophysiological signals: impact on intracranial and arterial pressure monitoring in traumatic brain injury", <span class="jrnl">Journal of Neurosurgery</span>, 132(6), 1952-1960, <span class="yr">2019</span>.</li>
+            <li><span class="auth-me">Lee S.-B.</span>, Kim H.-J., Kim H., Jeong J.-H., Lee S.-W., Kim D.-J. "Comparative analysis of features extracted from EEG spatial, spectral and temporal domains for binary and multiclass motor imagery classification", <span class="jrnl">Information Sciences</span>, 502, 190-200, <span class="yr">2019</span>.</li>
+            <li>Kim H., <span class="auth-me">Lee S.-B.</span>, Son Y., Czosnyka M., Kim D.-J. "Hemodynamic instability and cardiovascular events after traumatic brain injury predict outcome after artifact removal with deep belief network analysis", <span class="jrnl">Journal of Neurosurgical Anesthesiology</span>, 30(4), 347-353, <span class="yr">2018</span>.</li>
+            <li>Son Y., <span class="auth-me">Lee S.-B.</span>, Kim H., Song E.-S., Huh H., Czosnyka M., Kim D.-J. "Automated artifact elimination of physiological signals using a deep belief network: An application for continuously measured arterial blood pressure waveforms", <span class="jrnl">Information Sciences</span>, 456, 145-158, <span class="yr">2018</span>.</li>
+          </ol>
+        </details>
       </div>
     </section>
 
     <section id="contact">
-      <h2>연락처</h2>
-      <div class="contact-box">
-        <p>궁금한 점이나 협업 제안은 언제든 환영합니다.</p>
-        <p style="margin-top:12px"><a class="mail" href="mailto:you@example.com">you@example.com</a></p>
+      <div class="wrap">
+        <h2>연락처</h2>
+        <p style="margin-bottom:18px">연구 협업, 강연, 문의는 언제든 환영합니다.</p>
+        <div class="contact-grid">
+          <a href="mailto:koreateam23@gmail.com">
+            <span class="ico">✉️</span>
+            <span><span class="lbl">Email</span><span class="val">koreateam23@gmail.com</span></span>
+          </a>
+          <a href="tel:+821088409483">
+            <span class="ico">📞</span>
+            <span><span class="lbl">Phone</span><span class="val">010-8840-9483</span></span>
+          </a>
+          <a href="https://github.com/doranmom" target="_blank" rel="noopener">
+            <span class="ico">🐙</span>
+            <span><span class="lbl">GitHub</span><span class="val">github.com/doranmom</span></span>
+          </a>
+          <a href="https://maps.google.com/?q=Keimyung University School of Medicine" target="_blank" rel="noopener">
+            <span class="ico">📍</span>
+            <span><span class="lbl">Office</span><span class="val">계명대학교 의과대학 의료정보학교실</span></span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="wrap">
-    © 2026 이름 · Built with 🤍 and hosted on GitHub Pages
+  <footer>
+    © 2026 Seung-Bo Lee · Department of Medical Informatics, Keimyung University School of Medicine<br>
+    Hosted on GitHub Pages
   </footer>
 </body>
 </html>
