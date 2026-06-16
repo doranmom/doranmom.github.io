@@ -46,13 +46,6 @@ nav .links a:hover { color: var(--text); opacity: 1; }
 .page-head h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.5px; display: flex; align-items: center; gap: 10px; }
 .page-head h1::before { content: ''; width: 5px; height: 26px; border-radius: 2px; background: var(--accent); }
 .page-head p { color: var(--text-dim); margin-top: 12px; }
-.new-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 20px; padding: 10px 20px; border-radius: 999px;
-  background: var(--accent); color: #0d1117; font-weight: 500; font-size: .92rem;
-  border: 1px solid var(--accent);
-}
-.new-btn:hover { opacity: 1; background: #79b8ff; border-color: #79b8ff; }
 
 /* ---------- Review list ---------- */
 .review-list { padding-bottom: 60px; }
