@@ -97,6 +97,13 @@
     .lead { color: var(--text-dim); }
     .lead + .lead { margin-top: 14px; }
 
+    /* research pillars */
+    .areas { margin-top: 24px; display: grid; gap: 16px; }
+    .area { padding: 2px 0 2px 16px; border-left: 3px solid var(--accent); }
+    .area h3 { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+    .area p { color: var(--text-dim); font-size: .95rem; line-height: 1.6; }
+    .area .jrnl { font-style: italic; color: var(--text-dim); }
+
     /* research tags */
     .interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
     .interests .tag {
@@ -223,14 +230,46 @@
           지금까지 의료 인공지능 분야에서 다양한 생체신호와 임상 문제를 아우르는 <strong>30여 편의 SCI/SCIE 논문</strong>을 발표했으며,
           최근에는 뇌질환 진단과 수술 중 위험 예측 분야에서 활발히 연구 성과를 내고 있습니다.
         </p>
-        <p class="lead">
-          연구의 한 축은 <strong>뇌·신경계 신호 분석</strong>입니다. 뇌파(EEG)를 이용해 파킨슨병과 알츠하이머병·전측두엽 치매를 감별 진단하고,
-          뇌전증 환자의 항경련제 반응과 장기 예후를 예측하며, 운동 상상 기반 뇌-컴퓨터 인터페이스(BCI)에서 사람마다 다른
-          신호 편차를 줄이는 방법을 연구해 왔습니다. 또 다른 축은 <strong>수술실과 중환자실의 실시간 데이터</strong>입니다.
-          수술 중 혈역학 신호로 대량 수혈과 수술 전후 뇌졸중 위험을 예측하고, 근전도(EMG)·맥파(PPG)·심전도(ECG)·근적외선 분광(NIRS)
-          등 다양한 생체신호로 신경근육 질환, 고혈압, 심혈관 질환을 진단·예측하는 모델을 개발합니다.
-          나아가 전자의무기록과 웨어러블 데이터까지 활용해 코로나19 중증화, 응급실 방문, 낙상 위험 등 폭넓은 임상 문제를 다룹니다.
-        </p>
+        <p class="lead">연구는 크게 네 가지 축으로 이어지고 있습니다.</p>
+        <div class="areas">
+          <div class="area">
+            <h3>① 뇌파(EEG) 기반 신경질환의 조기 진단</h3>
+            <p>
+              뇌파에 담긴 미세한 변화를 인공지능으로 포착해 신경계 질환을 진단합니다.
+              그래디언트 부스팅 모델로 파킨슨병을 선별하고(<span class="jrnl">Parkinsonism &amp; Related Disorders</span>),
+              안정 상태 뇌파로 알츠하이머병과 전측두엽 치매를 감별 진단하며(<span class="jrnl">IEEE TNSRE</span>),
+              뇌전증 환자의 항경련제 반응과 장기 예후를 예측해 개인 맞춤 치료를 돕습니다(<span class="jrnl">Scientific Reports</span>).
+            </p>
+          </div>
+          <div class="area">
+            <h3>② 뇌-컴퓨터 인터페이스(BCI)와 신호 표현 학습</h3>
+            <p>
+              운동 상상 기반 BCI에서 사람마다 다른 뇌파 패턴이 성능을 떨어뜨리는 문제를 다룹니다.
+              뇌파의 공간·시간·주파수 특징을 비교 분석하고(<span class="jrnl">Information Sciences</span>),
+              심층 거리 학습(deep metric learning)으로 개인 간 편차를 줄이며(PRISM, <span class="jrnl">Neurocomputing</span>),
+              신호 품질이 나빠져도 견고하게 작동하는 다중 윈도 앙상블 기법을 제안했습니다.
+            </p>
+          </div>
+          <div class="area">
+            <h3>③ 수술실·중환자실의 실시간 위험 예측</h3>
+            <p>
+              수술 중 발생하는 위급 상황을 미리 알리는 의사결정 지원 모델을 개발합니다.
+              실시간 혈역학 신호로 대량 수혈 필요성을 비침습적으로 예측하고(<span class="jrnl">Journal of Biomedical Informatics</span>),
+              수술 전 데이터로 수술 전후 뇌졸중 위험을 설명 가능하게 점수화하며(EACH score, <span class="jrnl">JMIR</span>),
+              근적외선 분광(NIRS)으로 모야모야병 우회수술의 예후를 평가합니다.
+            </p>
+          </div>
+          <div class="area">
+            <h3>④ 다양한 생체신호와 임상 데이터로의 확장</h3>
+            <p>
+              다루는 신호와 데이터의 종류를 넓혀 임상 문제 전반에 도전합니다.
+              근전도(EMG)로 신경근육 질환을 분류하고(nEMGNet, <span class="jrnl">Computer Methods and Programs in Biomedicine</span>),
+              맥파(PPG)로 고혈압을, 심전도(ECG)로 심혈관 이상을 감지합니다.
+              나아가 전자의무기록과 웨어러블 데이터를 활용해 코로나19 중증화, 응급실 방문, 낙상 위험 등
+              일상과 병원을 잇는 예측 모델까지 연구합니다.
+            </p>
+          </div>
+        </div>
         <p class="lead">
           이 모든 연구를 관통하는 두 가지 원칙은 <strong>'신뢰할 수 있는 입력'과 '설명할 수 있는 출력'</strong>입니다.
           측정 신호에 섞인 아티팩트를 딥러닝으로 정교하게 걷어내 모델이 올바른 데이터를 학습하도록 하고,
